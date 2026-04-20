@@ -6,14 +6,28 @@ import cors from 'cors';
 dotenv.config();
 
 const app = express();
-// Use port 5001 if 5000 is being used by AirPlay/System on macOS
+
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.mongoURI || '';
-
-// 1. CORS - Set to allow everything during local debugging
-app.use(cors()); 
-app.use(express.json());
-
+// use cors
+const allowedOrigins = [
+  'http://localhost:3000', // Allow local development
+  'https://mini-notes-app-rose.vercel.app' // Replace with your actual Vercel URL
+];
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 // --- MongoDB Connection ---
 if (!MONGO_URI) {
   console.error("❌ Error: mongoURI is missing in .env");
