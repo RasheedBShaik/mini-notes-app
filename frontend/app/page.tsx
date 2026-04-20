@@ -21,7 +21,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // const API_URL = "http://127.0.0.1:5000/api/notes";
-  const API_URI = https://mini-notes-app-nrww.onrender.com/api/notes
+  const API_URL = "https://mini-notes-app-nrww.onrender.com/api/notes/";
 
   const fetchNotes = async () => {
     setIsLoading(true);
@@ -38,12 +38,12 @@ export default function Home() {
 
   useEffect(() => { fetchNotes(); }, []);
 
-  const filteredNotes = useMemo(() => {
-    return notes.filter(n => 
-      n.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-      n.content.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-  }, [notes, searchQuery]);
+const filteredNotes = useMemo(() => {
+  return notes?.filter?.(n => 
+    n.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    n.content.toLowerCase().includes(searchQuery.toLowerCase())
+  ) || []; // Fallback to empty array
+}, [notes, searchQuery]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
