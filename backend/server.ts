@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MongoURI || '';
+const MONGO_URI = process.env.MONGO_URI || '';
 // use cors
 const allowedOrigins = [
   'http://localhost:3000', // Allow local development
@@ -30,7 +30,7 @@ app.use(cors({
 }));
 // --- MongoDB Connection ---
 if (!MONGO_URI) {
-  console.error("❌ Error: MongoURI is missing in .env");
+  console.error("❌ Error: MONGO_URI is missing in .env");
   process.exit(1);
 }
 
