@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    /* File Layout */
+    "rootDir": "./",             // Or "./src" if you move your files there
+    "outDir": "./dist",
+
+    /* Environment Settings */
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "Bundler", 
+    "lib": ["esnext"],           // Essential for modern JS features
+    "types": ["node"],           // Tells TS to use Node.js global types
+
+    /* Other Outputs */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    /* Stricter Typechecking Options */
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    /* Recommended Options */
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "esModuleInterop": true      // Highly recommended for Express imports
+  }
+}
