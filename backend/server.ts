@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || '';
+const MONGO_URI ="mongodb+srv://rasheedbasha2004_db_user:brBXM29lQNRycAHA@cluster0.4aulvn4.mongodb.net/?appName=Cluster0";
 // use cors
 const allowedOrigins = [
   'http://localhost:3000', // Allow local development
@@ -57,13 +57,13 @@ const noteSchema = new mongoose.Schema<INote>({
 const Note = mongoose.model<INote>('Note', noteSchema);
 
 // --- Routes ---
-
 app.get('/api/notes', async (req: Request, res: Response) => {
   try {
     const notes = await Note.find().sort({ createdAt: -1 });
     res.json(notes);
-  } catch (err) {
-    res.status(500).json({ error: "DB Error" });
+  } catch (err: any) {
+    // This will send the real error message to your browser/Postman
+    res.status(500).json({ error: err.message }); 
   }
 });
 
