@@ -12,7 +12,7 @@ const MONGO_URI = process.env.MONGO_URI ||'';
 // use cors
 const allowedOrigins = [
   'http://localhost:3000', // Allow local development
-  'https://mini-notes-app-rose.vercel.app' // Replace with your actual Vercel URL
+  'https://mini-notes-app-rose.vercel.app' //  actual Vercel URL
 ];
 app.use(cors({
   origin: (origin, callback) => {
@@ -28,6 +28,9 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
+
+app.use(express.json());
+
 // --- MongoDB Connection ---
 if (!MONGO_URI) {
   console.error("❌ Error: MONGO_URI is missing in .env");
