@@ -208,7 +208,7 @@ const filteredNotes = useMemo(() => {
                     >
                       <div className="flex justify-between items-start mb-4">
                         <div className="w-8 h-1 bg-slate-100 group-hover:bg-indigo-500 rounded-full transition-all" />
-                        <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-all translate-x-2 group-hover:translate-x-0">
+                        <div className="flex gap-1 transition-all translate-x-2 group-hover:translate-x-0">
                           <button 
                             onClick={() => { setEditingId(note._id); setTitle(note.title); setContent(note.content); window.scrollTo({top:0, behavior:'smooth'})}}
                             className="p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-xl transition-all"
