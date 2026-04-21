@@ -21,7 +21,8 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // const API_URL = "http://127.0.0.1:5000/api/notes";
-  const API_URL = "https://mini-notes-app-nrww.onrender.com/api/notes/";
+  const API_URL = "https://mini-notes-app-nrww.onrender.com/api/notes";
+  
 
   const fetchNotes = async () => {
     setIsLoading(true);
