@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT || 5000;
-const MONGO_URI ="mongodb+srv://rasheedbasha2004_db_user:brBXM29lQNRycAHA@cluster0.4aulvn4.mongodb.net/?appName=Cluster0";
+const MONGO_URI = process.env.MONGO_URI ||'';
 // use cors
 const allowedOrigins = [
   'http://localhost:3000', // Allow local development
