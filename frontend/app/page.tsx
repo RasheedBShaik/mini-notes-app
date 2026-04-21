@@ -151,7 +151,7 @@ export default function Home() {
                   onChange={(e) => setTitle(e.target.value)}
                 />
                 <textarea
-                  className="w-full min-h-[250px] text-lg text-slate-600 resize-none outline-none placeholder:text-slate-200 bg-transparent leading-relaxed"
+                  className="w-full min-h-62.5 text-lg text-slate-600 resize-none outline-none placeholder:text-slate-200 bg-transparent leading-relaxed"
                   placeholder="Start writing..."
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
